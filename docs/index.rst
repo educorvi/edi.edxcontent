@@ -1,0 +1,5 @@
+====================
+edi.edxcontent
+====================
+
+User documentation
