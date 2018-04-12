@@ -23,7 +23,12 @@ class IEdxpage(Interface):
         required=False,
     )
 
-   text = RichText(
+    text = RichText(
         title=u'Haupttext',
+        required=True,
+    )
+
+    muster = schema.TextLine(
+        title=u'Vorlage',
         required=True,
     )

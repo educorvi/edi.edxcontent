@@ -1,15 +1,20 @@
 <div class="row">
     <h2>Ergebnis Ihrer Übung</h2>
-    <p tal:condition="not: view/htmldiffs">Herzlichen Glückwunsch - Sie haben die Übungsaufgabe richtig gelöst.</p>
-    <p tal:condition="view/htmldiffs">Bitte prüfen Sie die aufgelisteten Unterschiede. Mit Klick auf "Bearbeiten"
+    <p tal:condition="python: not view.htmldiffs and not view.comments">Herzlichen Glückwunsch - Sie haben die Übungsaufgabe richtig gelöst.</p>
+    <p tal:condition="python: view.htmldiffs or view.comments">Bitte prüfen Sie die aufgelisteten Unterschiede. Mit Klick auf "Bearbeiten"
                                       können Sie jederzeit korrigieren und Ihr Ergebnis erneut überprüfen"</p>
-    <div style="margin-bottom: 20px" tal:repeat="diff view/htmldiffs">
+
+    <div tal:condition="view/htmldiffs" style="margin-bottom: 20px" tal:repeat="diff view/htmldiffs">
       <h4>Lösung der Mustervorlage</h4>
       <p tal:content="structure python: diff[1]"/>
       <h4>Ihre Lösung</h4>
       <p tal:content="structure python: diff[0]"/>
       <hr>
     </div>
+
+    <ul tal:condition="view/comments">
+      <li tal:repeat="comment view/comments" tal:content="comment" />
+    </ul>
 
     <hr>
     <h2>Ihr Text</h2>

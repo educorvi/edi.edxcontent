@@ -43,6 +43,9 @@ setup(
         'setuptools',
         'z3c.jbot',
         'plone.app.dexterity',
+        'html-tree-diff',
+        'html5lib',
+        'bs4',
     ],
     extras_require={
         'test': [
